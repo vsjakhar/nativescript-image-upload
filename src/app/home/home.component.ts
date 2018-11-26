@@ -30,6 +30,8 @@ export class HomeComponent implements OnInit {
                 camera.takePicture()
                     .then(imageAsset => {
                         alert("After Image Selection...!");
+                    }).catch(function (err) {
+                        alert("Please select a Image...!");
                     });
             });
     }
