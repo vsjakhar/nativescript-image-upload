@@ -15,7 +15,8 @@
     <Label class="action-bar-title" text="Home"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<StackLayout class="m-15" sdkExampleTitle sdkToggleNavButton>
+    <!-- >> button-tap-event-html -->
+    <Button class="btn btn-primary btn-active" id="button" text="Camera" (tap)="openCamera()"></Button>
+    <!-- << button-tap-event-html -->
+</StackLayout>

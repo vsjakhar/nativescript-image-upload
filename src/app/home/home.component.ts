@@ -21,4 +21,8 @@ export class HomeComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+
+    openCamera(){
+        alert("Open Camera Option...!");
+    }
 }
