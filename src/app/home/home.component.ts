@@ -27,7 +27,10 @@ export class HomeComponent implements OnInit {
     openCamera(){
         camera.requestPermissions().then(
             function success() {
-                alert("After Camera Permitions");
+                camera.takePicture()
+                    .then(imageAsset => {
+                        alert("After Image Selection...!");
+                    });
             });
     }
 }
