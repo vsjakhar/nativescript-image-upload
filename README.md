@@ -1,5 +1,5 @@
 # nativescript-image-upload
-Native Script Upload to Server from Camera and Gallery
+Native Script Upload to Server from Camera and Gallery with Save into Device with background http method
 
 ### Install recomended Plugins
 	tns plugin add nativescript-camera
