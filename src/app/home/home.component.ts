@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 
+import * as camera from "nativescript-camera";
+
 @Component({
     selector: "Home",
     moduleId: module.id,
@@ -23,6 +25,9 @@ export class HomeComponent implements OnInit {
     }
 
     openCamera(){
-        alert("Open Camera Option...!");
+        camera.requestPermissions().then(
+            function success() {
+                alert("After Camera Permitions");
+            });
     }
 }
