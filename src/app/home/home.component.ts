@@ -7,6 +7,8 @@ import * as camera from "nativescript-camera";
 var enumsModule = require("ui/enums");
 var fs = require('file-system');
 var imageSourceModule = require("image-source");
+var bghttp = require("nativescript-background-http");
+var session = bghttp.session("image-upload");
 
 @Component({
     selector: "Home",
@@ -40,9 +42,26 @@ export class HomeComponent implements OnInit {
                         imageSourceModule.fromAsset(imageAsset)
                             .then(imageSource => {
                                 imageSource.saveToFile(filepath, enumsModule.ImageFormat.jpeg);
-                                console.log(filepath);
-                                alert("File Successfully Saved to Device...!");
                                 console.log("Start file Upoading...!");
+
+                                var request = {
+                                    url: "http://192.168.1.2:8000/api/profileImage/",
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/octet-stream",
+                                        "File-Name": filename
+                                    },
+                                    description: "{ 'uploading': '" + filename + "' }"
+                                };
+
+                                var params = [
+                                   { name: "id", value: "45" },
+                                   { name: "profile", filename: filepath, mimeType: "image/jpeg" }
+                                ];
+                                var task = session.multipartUpload(params, request);    // Upload Multiple file with Parameters
+                                // var task = session.uploadFile(filepath, request);    // Upload Single File
+                                console.log(task);
+                                alert("File Uploaded Successfully...!")
                             });
                     }).catch(function (err) {
                         alert("Please select a Image...!");

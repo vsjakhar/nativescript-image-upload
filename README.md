@@ -4,6 +4,7 @@ Native Script Upload to Server from Camera and Gallery
 ### Install recomended Plugins
 	tns plugin add nativescript-camera
 	npm install nativescript-camera --save
+	tns plugin add nativescript-background-http
 
 # NativeScript with Angular Drawer Navigation Template
 
